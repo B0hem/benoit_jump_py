@@ -22,7 +22,7 @@ pygame.display.set_caption('Benoit Jumper')
 
 #  Initialisation du jeu
 #  l'axe (x,y) de pygame prends pour valeur (0,0)
-#  u point le plus haut à gauche de la fenêtre
+#  Au point le plus haut à gauche de la fenêtre
 background = white
 
 timer = pygame.time.Clock()
@@ -220,9 +220,9 @@ def game_update():
     platforms = update_platforms(platforms, doodle_y, y_change)
     platforms_wrong = update_plateforms_wrong(platforms_wrong, doodle_y, y_change)
 
-    if doodle_x < -20:  # Evite les collisions côté droit en remettant le doodle a la position max choisie
+    if doodle_x < -20:  # Evite les collisions côté gauche en remettant le doodle a la position max choisie
         doodle_x = -20
-    elif doodle_x > 330:  # Evite les collisions côté gauche en remettant le doodle a la position max choisie
+    elif doodle_x > 330:  # Evite les collisions côté droit en remettant le doodle a la position max choisie
         doodle_x = 330
 
 
@@ -233,9 +233,9 @@ def doodle_switch():
     """
     global doodle
 
-    if x_change > 0:  # Si on va vers la gauche, le doodle pointera vers la gauche ( le png est dans cet état de base )
+    if x_change > 0:  # Si on va vers la droite, le doodle pointera vers la droite ( le png est dans cet état de base )
         doodle = pygame.transform.scale(pygame.image.load(avatar), (80, 80))
-    elif x_change < 0:  # Si on va vers la droite, le doodle pointera vers la droite ( grace à la fonction flip )
+    elif x_change < 0:  # Si on va vers la gauche, le doodle pointera vers la gauche ( grace à la fonction flip )
         doodle = pygame.transform.flip(pygame.transform.scale(pygame.image.load(avatar), (80, 80)), True, False)
 
 def gameover_txt():
